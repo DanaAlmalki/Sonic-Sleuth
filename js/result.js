@@ -107,7 +107,7 @@ function loadContent() {
 }
 
 function loadDeepfakeDetectionTabContent() {
-  const percentage = 90;
+  const percentage = 13;
 
   //get html element
   const indicatorContainer = document.getElementById(
@@ -143,13 +143,13 @@ function loadDeepfakeDetectionTabContent() {
   //deepfake message
   if (percentage >= 80) {
     deepfakeMessage.innerHTML =
-      "<i class=\"bi bi-x-octagon-fill\"></i> The Audio is Not Safe: Deepfake Content Detected.";
+      "<i class=\"bi bi-x-octagon-fill\"></i> <b>The Audio is <span style=\"color:#ae2727cc;\">Not Safe</span></b>: Deepfake Content Detected.";
   } else if (percentage < 80 && percentage >= 40) {
     deepfakeMessage.innerHTML =
       "<i class=\"bi bi-exclamation-triangle-fill\"></i> The Audio Might Be Altered: Possible Deepfake Content Detected.";
   } else {
     deepfakeMessage.innerHTML =
-      "<i class=\"bi bi-check-circle-fill\"></i> The Audio is Safe: No Deepfake Content Detected.";
+      "<i class=\"bi bi-check-circle-fill\"></i> <b>The Audio is <span style=\"color:#28a745;\">Not Safe</span></b>: No Deepfake Content Detected.";
   }
 
   //file name label
