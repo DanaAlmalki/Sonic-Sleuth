@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sonic Sleuth</title>
+  <link rel="stylesheet" href="./css/global.css" />
+  <link rel="stylesheet" href="./css/result.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- bootstrap imports -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="loader-container">
+    <div class="loader"></div>
+  </div>
+  <!-- ----------------------------------------------SHARE MODEL ---------------------------------------------- -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Share</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col d-flex flex-column align-items-center">
+              <img src="./assets/icons/snapchat.png" alt="Snapchat" height="30" />
+              <span>Snapchat</span>
+            </div>
+            <div class="col d-flex flex-column align-items-center">
+              <img src="./assets/icons/instagram.png" alt="Instagram" height="30" />
+              <span>Instagram</span>
+            </div>
+            <div class="col d-flex flex-column align-items-center">
+              <img src="./assets/icons/whatsapp (1).png" alt="Whatsapp" height="30" />
+              <span>Whatsapp</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ----------------------------------------------NAVBAR ---------------------------------------------- -->
+  <nav class="navbar navbar-expand-lg border-bottom border-body">
+    <div class="container-fluid px-5">
+      <a class="navbar-brand" href="#">
+        <img src="./assets/images/light logo nvbar.svg" alt="Your Logo" width="150" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about_us.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- ------------------------------------------------------------------------------------------------ -->
+  <main>
+    <div class="container-fluid">
+      <!-- ----------------------------------------------TABS ---------------------------------------------- -->
+      <div class="tabs-container my-3 mb-5">
+        <ul class="nav nav-underline" id="tabs">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" id="deepfake-tab">
+              DeepFake Detection
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="metadata-tab" href="#metadata">Metadata</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="content-analysis-tab" href="#content-analysis">Content Analysis</a>
+          </li>
+        </ul>
+      </div>
+      <!-- ----------------------------------------------CONTENT ---------------------------------------------- -->
+      <!-- ----------------------------------------------DEEPFAKE DETECTION TAB ---------------------------------------------- -->
+      <section id="deepfake-section" class="tab-content container py-5" id="">
+        <div class="container">
+          <div class="row">
+            <!-- ---------------progress indicator --------------- -->
+            <div class="col-md-2 col-lg-2  justify-content-center"></div>
+            <div class="col-md-4 col-lg-2 d-flex justify-content-center">
+              <div id="progress_indicator-container" class="progress_indicator progress_indicator-red">
+                <span id="progress_indicator-data" style="font-weight: bold;">0%</span>
+              </div>
+            </div>
+            <!-- ---------------data --------------- -->
+            <div class="col-md-6 col-lg-8 d-flex flex-column align-items-center py-5 py-md-0">
+              <div id="deepfake-message" class="result_message-container card-container">
+                ✔ The Audio is Safe: No Deepfake Content Detected.
+              </div>
+              <div class="row py-5">
+                <div class="col d-flex flex-column align-items-center">
+                  <i class="bi bi-soundwave" style="font-size: 3rem;"></i>
+                  <span id="file_name-label">test.wav</span>
+                </div>
+                <div id="reanalysis-button" class="col d-flex flex-column align-items-center">
+                  <i class="bi bi-arrow-repeat" style="font-size: 3rem;"></i>
+                  <span>Reanalysis</span>
+                </div>
+                <div class="col d-flex flex-column align-items-center">
+                  <i class="bi bi-share" alt="Share" style="font-size: 3rem; cursor: pointer" id="share-icon"
+                  data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+                  <span>Share</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p id="result-error-message" class="error-message mt-5">
+          Error!!!!!!!!!!!!!
+        </p>
+      </section>
+      <!-- ----------------------------------------------METADATA TAB ---------------------------------------------- -->
+      <section class="tab-content" id="metadata-section">
+        <div class="container text-start">
+          <div class="row row-cols-2">
+            <div class="col-12 col-md-6 mt-2 custom-border">
+              <h5>File-name</h5>
+              <p id="file-name">recording1.mp3</p>
+            </div>
+            <div class="col-12 col-md-6 mt-2 custom-border">
+              <h5>File-size</h5>
+              <p id="file-size">31 MB</p>
+            </div>
+            <div class="col-12 col-md-6 mt-2 custom-border">
+              <h5>File-type</h5>
+              <p id="file-type">mp3</p>
+            </div>
+            <div class="col-12 col-md-6 mt-2 custom-border">
+              <h5>File-type-extension</h5>
+              <p id="file-type-extension">mp3</p>
+            </div>
+            <div class="col-12 col-md-6 mt-2 custom-border">
+              <h5>Sample_rate</h5>
+              <p id="sample-rate">44100</p>
+            </div>
+            <div class="col-12 col-md-6 mt-2 custom-border">
+              <h5>Channel_mode</h5>
+              <p id="channel-mode">Stereo</p>
+            </div>
+            <div class="col-12 col-md-6 mt-2 custom-border">
+              <h5>Duration</h5>
+              <p id="duration">0:03:13</p>
+            </div>
+            <div class="col-12 col-md-6 mt-2 custom-border">
+              <h5>Channels</h5>
+              <p id="channels">2</p>
+            </div>
+            <div class="col-12 col-md-6 mt-2 custom-border">
+              <h5>Creator_tool</h5>
+              <p id="creator-tool">Adobe Audition CC 2018.1 (Windows)</p>
+            </div>
+            <div class="col-12 col-md-6 mt-2 custom-border">
+              <h5>Create_date</h5>
+              <p id="create-date">2014:11:18 14:08:34</p>
+            </div>
+            <div class="col-12 col-md-6 mt-2 custom-border">
+              <h5>Modify_date</h5>
+              <p id="modify-date">2014:11:18 14:24:23</p>
+            </div>
+            <div class="col-12 col-md-6 mt-2 custom-border">
+              <h5>Raw_header</h5>
+              <div class="row pb-2">
+                <div class="col">
+                  <input type="text" class="form-control"
+                    value="49 44 33 04 00 00 00 01 00 00 54 54 58 6F 49 44 33 04 00 00 00 01 00 ..."
+                    id="raw-header-input" />
+                </div>
+                <div class="col">
+                  <button id="copy_to_clipboard-button" class="btn btn-primary">
+                    Copy text
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ----------------------------------------------SUMMARY CONTENT TAB ---------------------------------------------- -->
+      <section class="tab-content" id="content-analysis-section">
+        <div class="container mt-5">
+          <div class="row g-3 align-items-start">
+            <div class="col-md-4 col-lg-3 d-flex justify-content-center">
+              <!-- Sidebar width -->
+              <div class="d-flex flex-column flex-shrink-0 p-3 card-container" style="width: 280px">
+                <ul class="nav nav-pills flex-column mb-auto">
+                  <li class="nav-item">
+                    <a class="nav-link sidebar-button" id="transcript">
+                      Transcript
+                    </a>
+                  </li>
+                  <li>
+                    <a class="nav-link sidebar-button" id="sentiment">Sentiment</a>
+                  </li>
+                  <li>
+                    <a class="nav-link sidebar-button" id="topic">Topic</a>
+                  </li>
+                  <li>
+                    <a class="nav-link sidebar-button" id="summary">Summary</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-8 col-lg-9 d-flex flex-column align-items-center flex-grow-1 py-5 py-md-0">
+              <div id="transcript-content" class="sidebar-content w-100 mb-3">
+                <div class="card-container text-start w-100">
+                  <h4 id="list-item-1">Transcript</h4>
+                  <p id="transcript-data">
+                    Transcript content goes here...
+                  </p>
+                </div>
+              </div>
+              <div id="sentiment-content" class="sidebar-content w-100 mb-3">
+                <div class="card-container text-start w-100">
+                  <h4>Sentiment</h4>
+                  <p id="sentiment-data">Sentiment analysis results...</p>
+                </div>
+              </div>
+              <div id="topic-content" class="sidebar-content w-100 mb-3">
+                <div class="card-container text-start w-100">
+                  <h4>Topic</h4>
+                  <p id="topic-data">Main topic information...</p>
+                </div>
+              </div>
+              <div id="summary-content" class="sidebar-content w-100 mb-3">
+                <div class="card-container w-100 text-start">
+                  <h4>Summary</h4>
+                  <p id="summary-data">Summary of the content...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="./js/util.js"></script>
+  <script src="./js/result.js"></script>
+</body>
+
+</html>
+
+</html>

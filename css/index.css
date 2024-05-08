@@ -1,0 +1,46 @@
+/* CONTENT */
+main {
+  padding: 20px;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.text-logo {
+  font-size: 5rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* TABS */
+.tabs-container {
+  background-color: var(--surface-color);
+  display: inline-flex;
+  justify-content: center;
+}
+
+.tabs-container .nav {
+  gap: 0;
+  font-size: 1.3rem;
+}
+
+.nav-underline .nav-link.active {
+  color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  border-bottom-width: 5px !important;
+}
+
+.nav-underline .nav-link {
+  padding-right: 50px !important;
+  padding-left: 50px !important;
+  color: grey;
+}
+
+.nav-underline .nav-link:hover {
+  border-bottom-width: 5px !important;
+  border-color: var(--primary-color) !important;
+  color: var(--primary-color) !important;
+}
+
+.input_width {
+  width: 30% !important;
+}
