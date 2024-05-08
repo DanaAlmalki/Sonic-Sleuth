@@ -37,6 +37,7 @@ main {
 
 .result_message-container {
   font-size: 1.3rem;
+  margin: 5px;
 }
 
 .progress_indicator {
