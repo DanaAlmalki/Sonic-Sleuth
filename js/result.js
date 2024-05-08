@@ -107,7 +107,7 @@ function loadContent() {
 }
 
 function loadDeepfakeDetectionTabContent() {
-  const percentage = 60;
+  const percentage = 37;
 
   //get html element
   const indicatorContainer = document.getElementById(
@@ -127,9 +127,9 @@ function loadDeepfakeDetectionTabContent() {
         "progress_indicator-yellow",
         "progress_indicator-red"
       );
-      if (counter >= 80) {
+      if (counter >= 60) {
         indicatorContainer.classList.add("progress_indicator-red");
-      } else if (counter < 80 && counter >= 40) {
+      } else if (counter < 60 && counter >= 50) {
         indicatorContainer.classList.add("progress_indicator-yellow");
       } else {
         indicatorContainer.classList.add("progress_indicator-green");
