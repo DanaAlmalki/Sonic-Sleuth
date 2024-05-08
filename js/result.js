@@ -250,7 +250,7 @@ const shareData = {
   url: "https://developer.mozilla.org",
 };
 
-/*const btn = document.querySelector("#share-icon");
+const btn = document.querySelector("#share-icon");
 const resultPara = document.querySelector(".result");
 
 // Share must be triggered by "user activation"
@@ -261,4 +261,4 @@ btn.addEventListener("click", async () => {
   } catch (err) {
     resultPara.textContent = `Error: ${err}`;
   }
-}); */
+});
